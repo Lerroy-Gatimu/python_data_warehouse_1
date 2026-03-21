@@ -1,0 +1,68 @@
+[2026-03-21 13:20:25] INFO     main — ============================================================
+[2026-03-21 13:20:25] INFO     main — python_data_warehouse_1 — ETL Pipeline Starting
+[2026-03-21 13:20:25] INFO     main — Date range: 2024-01-01 → 2024-03-31
+[2026-03-21 13:20:25] INFO     main — Locations:  ['Nairobi', 'London', 'New York', 'Tokyo']
+[2026-03-21 13:20:25] INFO     main — ============================================================
+[2026-03-21 13:20:25] INFO     db — Database connection successful.
+[2026-03-21 13:20:25] INFO     main — 
+[PHASE 1] Loading dimension tables...
+[2026-03-21 13:20:25] INFO     transform.transformer — dim_date: generated 91 date records
+[2026-03-21 13:20:26] INFO     load.loader — dim_date: loaded 91 records
+[2026-03-21 13:20:26] INFO     transform.transformer — dim_time: generated 24 time records
+[2026-03-21 13:20:26] INFO     load.loader — dim_time: loaded 24 records
+[2026-03-21 13:20:26] INFO     main — 
+[PHASE 2] Running ETL per location...
+[2026-03-21 13:20:26] INFO     main — 
+── Processing: Nairobi ──
+[2026-03-21 13:20:26] INFO     main —   location_id = 1
+[2026-03-21 13:20:26] INFO     extract.api_client — Fetching data for Nairobi (2024-01-01 → 2024-03-31)
+[2026-03-21 13:20:28] INFO     extract.api_client —   ✓ Nairobi: received 2184 hourly records
+[2026-03-21 13:20:28] INFO     transform.transformer —   Nairobi: transformed 2184 records (skipped 0 empty rows)
+[2026-03-21 13:27:24] INFO     main — ============================================================
+[2026-03-21 13:27:24] INFO     main — python_data_warehouse_1 — ETL Pipeline Starting
+[2026-03-21 13:27:24] INFO     main — Date range: 2024-01-01 → 2024-03-31
+[2026-03-21 13:27:24] INFO     main — Locations:  ['Nairobi', 'London', 'New York', 'Tokyo']
+[2026-03-21 13:27:24] INFO     main — ============================================================
+[2026-03-21 13:27:24] INFO     db — Database connection successful.
+[2026-03-21 13:27:24] INFO     main — 
+[PHASE 1] Loading dimension tables...
+[2026-03-21 13:27:24] INFO     transform.transformer — dim_date: generated 91 date records
+[2026-03-21 13:27:24] INFO     load.loader — dim_date: loaded 91 records
+[2026-03-21 13:27:24] INFO     transform.transformer — dim_time: generated 24 time records
+[2026-03-21 13:27:24] INFO     load.loader — dim_time: loaded 24 records
+[2026-03-21 13:27:24] INFO     main — 
+[PHASE 2] Running ETL per location...
+[2026-03-21 13:27:24] INFO     main — 
+── Processing: Nairobi ──
+[2026-03-21 13:27:24] INFO     main —   location_id = 1
+[2026-03-21 13:27:24] INFO     extract.api_client — Fetching data for Nairobi (2024-01-01 → 2024-03-31)
+[2026-03-21 13:27:26] INFO     extract.api_client —   ✓ Nairobi: received 2184 hourly records
+[2026-03-21 13:27:26] INFO     transform.transformer —   Nairobi: transformed 2184 records (skipped 0 empty rows)
+[2026-03-21 13:27:27] INFO     load.loader —   Nairobi: loaded 2184 fact rows
+[2026-03-21 13:27:27] INFO     main — 
+── Processing: London ──
+[2026-03-21 13:27:27] INFO     main —   location_id = 3
+[2026-03-21 13:27:27] INFO     extract.api_client — Fetching data for London (2024-01-01 → 2024-03-31)
+[2026-03-21 13:27:28] INFO     extract.api_client —   ✓ London: received 2184 hourly records
+[2026-03-21 13:27:28] INFO     transform.transformer —   London: transformed 2184 records (skipped 0 empty rows)
+[2026-03-21 13:27:29] INFO     load.loader —   London: loaded 2184 fact rows
+[2026-03-21 13:27:29] INFO     main — 
+── Processing: New York ──
+[2026-03-21 13:27:29] INFO     main —   location_id = 4
+[2026-03-21 13:27:29] INFO     extract.api_client — Fetching data for New York (2024-01-01 → 2024-03-31)
+[2026-03-21 13:27:30] INFO     extract.api_client —   ✓ New York: received 2184 hourly records
+[2026-03-21 13:27:30] INFO     transform.transformer —   New York: transformed 2184 records (skipped 0 empty rows)
+[2026-03-21 13:27:31] INFO     load.loader —   New York: loaded 2184 fact rows
+[2026-03-21 13:27:31] INFO     main — 
+── Processing: Tokyo ──
+[2026-03-21 13:27:31] INFO     main —   location_id = 5
+[2026-03-21 13:27:31] INFO     extract.api_client — Fetching data for Tokyo (2024-01-01 → 2024-03-31)
+[2026-03-21 13:27:32] INFO     extract.api_client —   ✓ Tokyo: received 2184 hourly records
+[2026-03-21 13:27:32] INFO     transform.transformer —   Tokyo: transformed 2184 records (skipped 0 empty rows)
+[2026-03-21 13:27:33] INFO     load.loader —   Tokyo: loaded 2184 fact rows
+[2026-03-21 13:27:33] INFO     main — 
+============================================================
+[2026-03-21 13:27:33] INFO     main — PIPELINE COMPLETE
+[2026-03-21 13:27:33] INFO     main —   Total fact rows loaded : 8,736
+[2026-03-21 13:27:33] INFO     main —   Successful locations   : 4/4
+[2026-03-21 13:27:33] INFO     main — ============================================================

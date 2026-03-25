@@ -15,15 +15,10 @@ def _get_table(name: str) -> Table:
 
 
 def upsert_location(location: dict) -> int:
-    """
-    Insert a location, or return its existing ID if it's already there.
-    Returns the location_id.
-    """
     tbl  = _get_table("dim_location")
     stmt = (
         mysql_insert(tbl)
         .values(**location)
-        # ON DUPLICATE KEY UPDATE — if lat/lon already exists, just update name
         .on_duplicate_key_update(city_name=location["city_name"])
     )
 
@@ -46,7 +41,7 @@ def upsert_location(location: dict) -> int:
 
 
 def load_dim_date(records: list[dict]) -> int:
-    """Bulk upsert date dimension rows. Returns count loaded."""
+    
     if not records:
         return 0
 
@@ -66,7 +61,7 @@ def load_dim_date(records: list[dict]) -> int:
 
 
 def load_dim_time(records: list[dict]) -> int:
-    """Bulk upsert time dimension rows. Returns count loaded."""
+   
     if not records:
         return 0
 
@@ -86,16 +81,6 @@ def load_dim_time(records: list[dict]) -> int:
 
 
 def load_fact_weather(records: list[dict], city: str, batch_size: int = 500) -> int:
-    """
-    Bulk upsert fact weather rows in batches.
-
-    Why batches?
-    - Inserting thousands of rows in a single statement can exceed MySQL's
-      max_allowed_packet limit and cause memory spikes.
-    - Batching keeps memory flat and makes error isolation easier.
-
-    Returns total rows inserted/updated.
-    """
     if not records:
         return 0
 

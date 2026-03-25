@@ -11,8 +11,7 @@ def get_logger(name: str) -> logging.Logger:
     
     # Preventing Duplicate Handlers (Critical)
     if logger.handlers:
-        return logger  # Already configured
-
+        return logger  
     formatter = logging.Formatter(
         "[%(asctime)s] %(levelname)-8s %(name)s — %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S"

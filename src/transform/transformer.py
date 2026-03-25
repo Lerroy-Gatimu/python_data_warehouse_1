@@ -7,11 +7,7 @@ logger = get_logger("transform.transformer")
 
 
 def build_dim_date_records(start_date: str, end_date: str) -> list[dict]:
-    """
-    Pre-generates all calendar day rows between two dates.
-    This is standard practice — load the date dimension once,
-    then all fact rows just reference it by integer ID.
-    """
+    
     date_range = pd.date_range(start=start_date, end=end_date, freq="D")
     records = []
 
@@ -69,20 +65,7 @@ def transform_weather_data(
     location_id: int,
     city: str
 ) -> Optional[list[dict]]:
-    """
-    Converts raw Open-Meteo API response into a list of fact table rows.
-
-    Each row in the API's hourly arrays maps to one fact row.
-    We extract the date_id and time_id from each timestamp.
-
-    Args:
-        raw_data:    Raw JSON from the API
-        location_id: The location_id from dim_location
-        city:        For logging
-
-    Returns:
-        List of dicts, each representing one row in fact_weather_observations
-    """
+    
     try:
         hourly = raw_data.get("hourly", {})
         times  = hourly.get("time", [])

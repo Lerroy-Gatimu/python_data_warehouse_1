@@ -6,7 +6,7 @@ logger = get_logger("extract.api_client")
 
 BASE_URL = "https://archive-api.open-meteo.com/v1/archive"
 
-# The exact fields we want from the API
+
 HOURLY_VARIABLES = [
     "temperature_2m",
     "relative_humidity_2m",
@@ -26,20 +26,7 @@ def fetch_weather(
     timezone: str,
     city: str = ""
 ) -> Optional[dict]:
-    """
-    Calls the Open-Meteo Historical Weather API and returns raw JSON.
-
-    Args:
-        latitude:   Location latitude
-        longitude:  Location longitude
-        start_date: 'YYYY-MM-DD' format
-        end_date:   'YYYY-MM-DD' format
-        timezone:   IANA timezone string e.g. 'Africa/Nairobi'
-        city:       For logging only
-
-    Returns:
-        Raw API response dict, or None on failure.
-    """
+    
     params = {
         "latitude":  latitude,
         "longitude": longitude,

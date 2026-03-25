@@ -1,7 +1,3 @@
-"""
-python_data_warehouse_1 — ETL Pipeline Orchestrator
-
-"""
 
 import sys
 from config import LOCATIONS, EXTRACT_START_DATE, EXTRACT_END_DATE

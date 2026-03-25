@@ -14,7 +14,7 @@ DATABASE_URL = (
     f"@{DB_HOST}:{DB_PORT}/{DB_NAME}?charset=utf8mb4"
 )
 
-# Locations we want to load weather data for 
+ 
 LOCATIONS = [
     {"city": "Nairobi",    "country": "Kenya",         "lat": -1.2921,  "lon": 36.8219, "tz": "Africa/Nairobi"},
     {"city": "London",     "country": "United Kingdom","lat": 51.5074,  "lon": -0.1278, "tz": "Europe/London"},
@@ -22,6 +22,5 @@ LOCATIONS = [
     {"city": "Tokyo",      "country": "Japan",         "lat": 35.6762,  "lon": 139.6503,"tz": "Asia/Tokyo"},
 ]
 
-# Date range to extract
 EXTRACT_START_DATE = "2024-01-01"
-EXTRACT_END_DATE   = "2024-03-31"   # 3 months of hourly data
+EXTRACT_END_DATE   = "2024-03-31"  
